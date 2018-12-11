@@ -5,9 +5,9 @@ WORKDIR /app
 COPY . .
 RUN npm install --production
 
-env
+COPY entrypoint.sh /entrypoint.sh
 
-cat /github/workflow/event.json
+ENTRYPOINT ["/entrypoint.sh"]
 
 ENTRYPOINT ["probot", "receive"]
 CMD ["/app/index.js"]
