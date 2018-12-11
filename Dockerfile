@@ -1,8 +1,6 @@
 FROM node:10
 
-ENV PATH=$PATH:/app/node_modules/.bin
-WORKDIR /app
-COPY . .
+ENV PATH=$PATH:/github/workspace/node_modules/.bin
 RUN npm install --production
 
 ENTRYPOINT ["probot", "receive"]
